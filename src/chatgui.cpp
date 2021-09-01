@@ -1,7 +1,8 @@
-#include "chatgui.h"
-#include "chatbot.h"
-#include "chatlogic.h"
 #include "debug.h"
+
+#include "chatbot.h"
+#include "chatgui.h"
+#include "chatlogic.h"
 #include <string>
 #include <wx/colour.h>
 #include <wx/filename.h>
@@ -140,8 +141,6 @@ ChatBotPanelDialog::~ChatBotPanelDialog() {
 }
 
 void ChatBotPanelDialog::AddDialogItem(wxString text, bool isFromUser) {
-  DEBUG("AddDialogItem called!\n");
-
   // add a single dialog element to the sizer
   ChatBotPanelDialogItem *item =
       new ChatBotPanelDialogItem(this, text, isFromUser);

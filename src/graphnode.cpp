@@ -1,4 +1,5 @@
 #include "graphnode.h"
+#include "debug.h"
 #include "graphedge.h"
 
 GraphNode::GraphNode(int id) { _id = id; }
@@ -7,7 +8,9 @@ GraphNode::~GraphNode() {
   //// STUDENT CODE
   ////
 
-  delete _chatBot;
+  // Warm Up Task: delete _chatBot removed as it is not an owned data handle (no
+  // new call in constructor)
+  // delete _chatBot;
 
   ////
   //// EOF STUDENT CODE
