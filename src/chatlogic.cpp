@@ -70,7 +70,6 @@ void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens,
 }
 
 void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
-  
 
   // load file with answer graph elements
   std::ifstream file(filename);

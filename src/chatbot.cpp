@@ -42,6 +42,84 @@ ChatBot::~ChatBot() {
 //// STUDENT CODE
 ////
 
+ChatBot::ChatBot(const ChatBot &source) // copy constructor
+{
+  std::cout << "ChatBot Copy Constructor" << std::endl;
+
+  // not owned data
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
+
+  // owned data
+  _image = new wxBitmap();
+  *_image = *source._image;
+}
+
+ChatBot &ChatBot::operator=(const ChatBot &source) // copy assignment operator
+{
+  std::cout << "ChatBot Copy Assignment!" << std::endl;
+
+  if (this == &source)
+    return *this;
+
+  // not owned data
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
+
+  // owned data
+  delete _image;
+  _image = new wxBitmap();
+  *_image = *source._image;
+
+  return *this;
+}
+
+ChatBot::ChatBot(ChatBot &&source) // move constructor
+{
+  std::cout << "ChatBot Move Constructor" << std::endl;
+
+  // not owned data
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
+
+  // owned data
+  _image = source._image; // copy only the handle. heap remains unchanged
+
+  // reset source data
+  source._chatLogic = nullptr;
+  source._rootNode = nullptr;
+  source._currentNode = nullptr;
+  source._image = nullptr;
+}
+
+ChatBot &ChatBot::operator=(ChatBot &&source) // move assignment operator
+{
+  std::cout << "ChatBot Move Assignment" << std::endl;
+
+  if (this == &source)
+    return *this;
+
+  // not owned data
+  _chatLogic = source._chatLogic;
+  _rootNode = source._rootNode;
+  _currentNode = source._currentNode;
+
+  // owned data
+  delete _image;
+  _image = source._image; // copy only handle
+
+  // reset source data
+  source._chatLogic = nullptr;
+  source._rootNode = nullptr;
+  source._currentNode = nullptr;
+  source._image = nullptr;
+
+  return *this;
+}
+
 ////
 //// EOF STUDENT CODE
 

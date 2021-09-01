@@ -2,8 +2,8 @@
 #define CHATGUI_H_
 
 #include <iostream>
-#include <wx/wx.h>
 #include <memory>
+#include <wx/wx.h>
 
 class ChatLogic; // forward declaration
 
@@ -28,7 +28,7 @@ public:
   ~ChatBotPanelDialog();
 
   // getter / setter
-  std::shared_ptr<ChatLogic>  GetChatLogicHandle() { return _chatLogic; }
+  std::shared_ptr<ChatLogic> GetChatLogicHandle() { return _chatLogic; }
 
   // events
   void paintEvent(wxPaintEvent &evt);
