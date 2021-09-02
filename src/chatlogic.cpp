@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <iterator>
+#include <memory>
 #include <sstream>
 #include <tuple>
 #include <vector>
@@ -216,8 +217,17 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename) {
   }
 
   // add chatbot to graph root node
-  _chatBot->SetRootNode(rootNode);
-  rootNode->MoveChatbotHere(_chatBot);
+  //_chatBot->SetRootNode(rootNode);
+  // rootNode->MoveChatbotHere(_chatBot);
+
+  // Task 5
+  ChatBot chatBot("../images/chatbot.png");
+  chatBot.SetRootNode(rootNode);
+  chatBot.SetChatLogicHandle(this);
+
+  DEBUG("LoadAnswerGraphFromFile chatBot created");
+  rootNode->MoveChatbotHere(std::move(chatBot));
+  DEBUG("LoadAnswerGraphFromFile chatBot moved");
 
   ////
   //// EOF STUDENT CODE
