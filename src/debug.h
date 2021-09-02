@@ -2,12 +2,13 @@
 #include <iostream>
 #define DEBUG(x)                                                               \
   do {                                                                         \
-    std::cerr << x;                                                            \
+    std::cerr << x << std::endl;                                               \
   } while (0)
 #define DEBUGPRINTVAL(x)                                                       \
   do {                                                                         \
     std::cerr << "File: " << __FILE__ << "\nLine: " << __LINE__                \
-              << " Variable **" << (#x) << "** value **" << x << "**";         \
+              << " Variable **" << (#x) << "** value **" << x << "**"          \
+              << std::endl;                                                    \
   } while (0)
 #else
 #define DEBUG(x)                                                               \
