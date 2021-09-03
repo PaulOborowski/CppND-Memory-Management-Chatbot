@@ -50,6 +50,8 @@ ChatBot::ChatBot(const ChatBot &source) // copy constructor
   _chatLogic = source._chatLogic;
   _rootNode = source._rootNode;
   _currentNode = source._currentNode;
+  // redirect chatbot handle in member chatlogic
+  _chatLogic->SetChatbotHandle(this);
 
   // owned data
   _image = new wxBitmap();
@@ -67,6 +69,8 @@ ChatBot &ChatBot::operator=(const ChatBot &source) // copy assignment operator
   _chatLogic = source._chatLogic;
   _rootNode = source._rootNode;
   _currentNode = source._currentNode;
+  // redirect chatbot handle in member chatlogic
+  _chatLogic->SetChatbotHandle(this);
 
   // owned data
   delete _image;
@@ -84,6 +88,8 @@ ChatBot::ChatBot(ChatBot &&source) // move constructor
   _chatLogic = source._chatLogic;
   _rootNode = source._rootNode;
   _currentNode = source._currentNode;
+  // redirect chatbot handle in member chatlogic
+  _chatLogic->SetChatbotHandle(this);
 
   // owned data
   _image = source._image; // copy only the handle. heap remains unchanged
@@ -106,6 +112,8 @@ ChatBot &ChatBot::operator=(ChatBot &&source) // move assignment operator
   _chatLogic = source._chatLogic;
   _rootNode = source._rootNode;
   _currentNode = source._currentNode;
+  // redirect chatbot handle in member chatlogic
+  _chatLogic->SetChatbotHandle(this);
 
   // owned data
   delete _image;
