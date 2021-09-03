@@ -37,7 +37,7 @@ void GraphNode::MoveChatbotHere(ChatBot chatbot) {
 }
 
 void GraphNode::MoveChatbotToNewNode(GraphNode *newNode) {
-  newNode->MoveChatbotHere(_chatBot);
+  newNode->MoveChatbotHere(std::move(_chatBot));
   // _chatBot = nullptr; // not required when _chatBot is not a pointer
 }
 ////
